@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="lidar_length" value="0.1" />
+  <xacro:property name="lidar_height" value="0.1" />
+  <xacro:property name="lidar_width" value="0.1" />
+
+
+
+  <link name="lidar_link">
+    <visual>
+      <geometry>
+        <box size="${lidar_length} ${lidar_height} ${lidar_width}" />
+      </geometry>
+      <material name="yellow" />
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="${lidar_length} ${lidar_height} ${lidar_width}" />
+      </geometry>
+    </collision>
+    
+    <xacro:box_inertia m="0.2" x="${lidar_length}" y="${lidar_width}" z="${lidar_height}" o_xyz="0 0 0" o_rpy="0 0 0" />
+
+  </link>
+
+
+
+  <joint name="base_lidar_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_link" />
+    <origin xyz="0 0 ${base_height + lidar_height / 2}" rpy="0 0 0" />
+  </joint>
+
+
+
+
+</robot>
+

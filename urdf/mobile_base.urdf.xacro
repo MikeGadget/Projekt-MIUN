@@ -2,11 +2,11 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 
-  <xacro:property name="base_length" value="1.2" />
-  <xacro:property name="base_width" value="0.8" />
+  <xacro:property name="base_length" value="2" />
+  <xacro:property name="base_width" value="1.5" />
   <xacro:property name="base_height" value="0.4" />
-  <xacro:property name="wheel_radius" value="${(base_height * (3/4)) / 2}" />
-  <xacro:property name="wheel_length" value="0.05" />
+  <xacro:property name="wheel_radius" value="${(base_height * (4/4)) / 2}" />
+  <xacro:property name="wheel_length" value="0.2" />
 
 
   <link name="base_link">
@@ -15,7 +15,7 @@
         <box size="${base_length} ${base_width} ${base_height}" />
       </geometry>
       <origin xyz="0 0 ${base_height / 2.0}" rpy="0 0 0" />
-      <material name="yellow" />
+      <material name="blue" />
     </visual>
 
     <collision>
@@ -38,7 +38,7 @@
           <cylinder radius="${wheel_radius}" length="${wheel_length}" />
         </geometry>
         <origin xyz="0 0 0" rpy="${pi / 2.0} 0 0" />
-        <material name="grey" />
+        <material name="yellow" />
       </visual>
 
       <collision>
@@ -56,13 +56,45 @@
   
   <xacro:wheel_link prefix="right_back" />
   <xacro:wheel_link prefix="left_back" />
-  <xacro:wheel_link prefix="right_front" />
-  <xacro:wheel_link prefix="left_front" />
-
-
+ 
 
   <link name="base_footprint">
   </link>
+
+
+
+
+  <link name="front_wheel_link">
+    <visual>
+      <geometry>
+        <sphere radius="${wheel_radius}" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <material name="yellow" />
+    </visual>
+
+    <collision>
+      <geometry>
+        <sphere radius="${wheel_radius}" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />   
+    </collision>
+
+
+    <xacro:sphere_inertia m="2" r="${wheel_radius}"
+                          o_xyz="0 0 0" o_rpy="0 0 0" />
+  </link>
+
+  <joint name="base_front_wheel_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="front_wheel_link" />
+    <origin xyz="${base_length / 2.6} 0 0" rpy="0 0 0" />  
+  
+  </joint>
+
+
+
+
   
   <joint name="base_right_back_wheel_joint" type="continuous">
     <parent link="base_link" />
@@ -78,24 +110,11 @@
     <axis xyz="0 1 0" />
   </joint>
 
-  <joint name="base_right_front_wheel_joint" type="continuous">
-    <parent link="base_link" />
-    <child link="right_front_wheel_link" />
-    <origin xyz="${base_length / 3.0} ${-base_width / 2.0} 0" rpy="0 0 0" />
-    <axis xyz="0 1 0" />
-  </joint>
-
-  <joint name="base_left_front_wheel_joint" type="continuous">
-    <parent link="base_link" />
-    <child link="left_front_wheel_link" />
-    <origin xyz="${base_length / 3.0} ${base_width / 2.0} 0" rpy="0 0 0" />
-    <axis xyz="0 1 0" />
-  </joint>
 
   <joint name="base_joint" type="fixed">
     <parent link="base_footprint" />
     <child link="base_link" />
-    <origin xyz="0 0 ${(base_height * (3/4)) / 2}" rpy="0 0 0" />
+    <origin xyz="0 0 ${(base_height * (4/4)) / 2}" rpy="0 0 0" />
     <axis xyz="0 0 0" />
   </joint>
 

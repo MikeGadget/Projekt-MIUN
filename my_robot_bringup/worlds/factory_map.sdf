@@ -1,0 +1,165 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <world name="empty">
+    <gravity>0 0 -9.81</gravity>
+    <render_engine>ogre2</render_engine>
+    <ambient>0.45 0.45 0.45 1</ambient>
+
+    <!-- Ljus -->
+    <light name="sun" type="directional">
+      <pose>0 0 12 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>-0.4 0.2 -1</direction>
+      <cast_shadows>true</cast_shadows>
+    </light>
+
+    <!-- Golv: 40 x 30 m betongplatta (slät, ingen textur) -->
+    <!-- Boxens topp ligger vid z=0 -->
+    <model name="floor">
+      <static>true</static>
+      <pose>0 0 -0.05 0 0 0</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry><box><size>40 30 0.10</size></box></geometry>
+        </collision>
+        <visual name="vis">
+          <geometry><box><size>40 30 0.10</size></box></geometry>
+          <material>
+            <ambient>0.62 0.62 0.62 1</ambient>
+            <diffuse>0.62 0.62 0.62 1</diffuse>
+            <specular>0.02 0.02 0.02 1</specular>
+            <pbr><metal><metalness>0.0</metalness><roughness>0.9</roughness></metal></pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Väggar: tjocklek 0.2 m, höjd 3.0 m -->
+    <!-- Innerväggarnas plan ligger vid x=±19.9, y=±14.9 -->
+    <model name="wall_front">
+      <static>true</static>
+      <pose>0 15 1.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>40 0.2 3.0</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>40 0.2 3.0</size></box></geometry>
+          <material><ambient>0.60 0.20 0.20 1</ambient><diffuse>0.70 0.25 0.20 1</diffuse><specular>0.02 0.02 0.02 1</specular><pbr><metal><metalness>0.0</metalness><roughness>0.85</roughness></metal></pbr></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_back">
+      <static>true</static>
+      <pose>0 -15 1.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>40 0.2 3.0</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>40 0.2 3.0</size></box></geometry>
+          <material><ambient>0.60 0.20 0.20 1</ambient><diffuse>0.70 0.25 0.20 1</diffuse><specular>0.02 0.02 0.02 1</specular><pbr><metal><metalness>0.0</metalness><roughness>0.85</roughness></metal></pbr></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_left">
+      <static>true</static>
+      <pose>-20 0 1.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.2 30 3.0</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>0.2 30 3.0</size></box></geometry>
+          <material><ambient>0.60 0.20 0.20 1</ambient><diffuse>0.70 0.25 0.20 1</diffuse><specular>0.02 0.02 0.02 1</specular><pbr><metal><metalness>0.0</metalness><roughness>0.85</roughness></metal></pbr></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_right">
+      <static>true</static>
+      <pose>20 0 1.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.2 30 3.0</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>0.2 30 3.0</size></box></geometry>
+          <material><ambient>0.60 0.20 0.20 1</ambient><diffuse>0.70 0.25 0.20 1</diffuse><specular>0.02 0.02 0.02 1</specular><pbr><metal><metalness>0.0</metalness><roughness>0.85</roughness></metal></pbr></material>
+        </visual>
+      </link>
+    </model>
+
+
+    <!-- GULA FYRKANTER -->
+    <!-- A) Hörnruta: 2x2 m. Gör den 2.1 m och skjut 5 cm in så den ser helt flush ut. -->
+    <!-- Innerhörn (x=+19.9, y=-14.9) -> center (19.9-1.05, -14.9+1.05) = (18.85, -13.85) -->
+    <model name="mark_corner_SE_2m">
+      <static>true</static>
+      <pose>18.85 -13.85 0.002 0 0 0</pose>
+      <link name="link">
+        <visual name="square_fill">
+          <geometry><box><size>3.0 3.0 0.0001</size></box></geometry>
+          <material><ambient>1.0 0.9 0.0 1</ambient><diffuse>0.1 0.1 1.0 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- B) Mitt på golvet (exempel): 3x3 m -->
+    <model name="coil_collection">
+      <static>true</static>
+      <pose>-17.85 6 0.002 0 0 0</pose>
+      <link name="link">
+        <visual name="square_fill">
+          <geometry><box><size>3.0 3.0 0.0001</size></box></geometry>
+          <material><ambient>1.0 0.9 0.0 1</ambient><diffuse>1.0 1.0 0.0 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!--Unloading Station-->
+    <model name="coil_unloading">
+      <static>true</static>
+      <pose>2 -12.85 0.002 0 0 0</pose>
+      <link name="link">
+        <visual name="square_fill">
+          <geometry><box><size>3.0 3.0 0.0001</size></box></geometry>
+          <material><ambient>1.0 0.9 0.0 1</ambient><diffuse> 1.0 1.0 0.0 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!--Weighing Station-->
+    <model name="weighing_tagmarking_station">
+      <static>true</static>
+      <pose>10 -12.85 0.002 0 0 0</pose>
+      <link name="link">
+        <visual name="square_fill">
+          <geometry><box><size>3.0 3.0 0.0001</size></box></geometry>
+          <material><ambient>1.0 0.9 0.0 1</ambient><diffuse>1.0 1.0 0.0 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!--Compacting Station-->
+    <model name="compacting_station">
+      <static>true</static>
+      <pose>17.85 0.0 0.002 0 0 0</pose>
+      <link name="link">
+        <visual name="square_fill">
+          <geometry><box><size>3.0 3.0 0.0001</size></box></geometry>
+          <material><ambient>1.0 0.9 0.0 1</ambient><diffuse>1.0 1.0 0.0 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+
+    <!--UTSEENDE, inställningar vid uppstart -->
+    <gui fullscreen="0">
+      <!-- sätter kameravyn -->
+      <plugin filename="GzScene3D" name="3D View">
+        <engine>ogre2</engine>
+        <!-- x y z roll pitch yaw-->
+        <camera_pose>0 0 25   0 1.57 1.57</camera_pose>
+      </plugin>
+    </gui>
+
+
+  </world>
+</sdf>
+

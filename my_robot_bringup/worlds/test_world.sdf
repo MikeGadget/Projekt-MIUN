@@ -10,6 +10,7 @@
     <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
     <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
     <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <!--<plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system' />-->
     <gravity>0 0 -9.8000000000000007</gravity>
     <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
@@ -18,6 +19,10 @@
       <background>0.699999988 0.699999988 0.699999988 1</background>
       <shadows>true</shadows>
     </scene>
+
+
+
+
     <model name='ground_plane'>
       <static>true</static>
       <link name='link'>
@@ -67,6 +72,8 @@
       <pose>0 0 0 0 0 0</pose>
       <self_collide>false</self_collide>
     </model>
+
+
     <model name='box'>
       <pose>3.3563625292355308 4.2428040773166416 0.49999999990199806 6.2287739151293738e-22 9.3279666454713669e-22 -3.6315533669320137e-22</pose>
       <link name='box_link'>
@@ -114,6 +121,8 @@
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
+
+
     <model name='box_0'>
       <pose>8.4502979164957956 0.72458152235163542 0.49999999990199806 6.2287739151293738e-22 9.3279666454713669e-22 -3.6315533669320137e-22</pose>
       <link name='box_link'>
@@ -161,6 +170,8 @@
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
+
+
     <model name='box_1'>
       <pose>3.5460155669407367 9.4859182409868303 0.49999999990199806 6.2287739151293738e-22 9.3279666454713669e-22 -3.6315533669320137e-22</pose>
       <link name='box_link'>
@@ -208,6 +219,8 @@
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
+
+
     <model name='box_2'>
       <pose>-2.4270618738763381 3.7060708839742129 0.49999999990199806 2.5448413974852911e-21 9.9777089524688389e-23 -8.7974751158573218e-23</pose>
       <link name='box_link'>
@@ -255,6 +268,8 @@
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
+
+
     <model name='box_3'>
       <pose>-4.6663983524553103 -5.029478397871106 0.49999999990199806 6.2287739151293738e-22 9.3279666454713669e-22 -3.6315533669320137e-22</pose>
       <link name='box_link'>
@@ -302,6 +317,8 @@
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
+
+
     <model name='box_4'>
       <pose>-9.4985039321527474 -0.10570470847583469 0.49999999990199806 6.2287739151293738e-22 9.3279666454713669e-22 -3.6315533669320137e-22</pose>
       <link name='box_link'>
@@ -349,6 +366,8 @@
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
+
+
     <model name='box_5'>
       <pose>-9.5031785986260893 5.3673527797359499 0.49999999990199806 6.2287739151293738e-22 9.3279666454713669e-22 -3.6315533669320137e-22</pose>
       <link name='box_link'>
@@ -397,6 +416,8 @@
       <self_collide>false</self_collide>
     </model>
     <model name='box_6'>
+
+
       <pose>-2.4400371444076532 10.07470778964816 0.49999999990199806 6.2287739151293738e-22 9.3279666454713669e-22 -3.6315533669320137e-22</pose>
       <link name='box_link'>
         <inertial>
@@ -444,6 +465,8 @@
       <self_collide>false</self_collide>
     </model>
     <model name='box_7'>
+
+
       <pose>10.502342382794199 9.6726984254907791 0.49999999990199806 6.2287739151293738e-22 9.3279666454713669e-22 -3.6315533669320137e-22</pose>
       <link name='box_link'>
         <inertial>
@@ -491,6 +514,8 @@
       <self_collide>false</self_collide>
     </model>
     <model name='box_8'>
+
+
       <pose>10.55956980130092 6.3444761048363247 0.49999999990199806 6.2287739151293738e-22 9.3279666454713669e-22 -3.6315533669320137e-22</pose>
       <link name='box_link'>
         <inertial>
@@ -538,6 +563,8 @@
       <self_collide>false</self_collide>
     </model>
     <model name='box_9'>
+
+
       <pose>10.764603071980726 2.3297111961810257 0.49999999990199806 6.2287739151293738e-22 9.3279666454713669e-22 -3.6315533669320137e-22</pose>
       <link name='box_link'>
         <inertial>
@@ -584,6 +611,8 @@
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
+
+
     <model name='box_14'>
       <pose>-9.0671211160667848 -4.2044843283213957 0.49999999990199806 6.2287739151293738e-22 9.3279666454713669e-22 -3.6315533669320137e-22</pose>
       <link name='box_link'>
@@ -631,6 +660,9 @@
       <static>false</static>
       <self_collide>false</self_collide>
     </model>
+
+
+    
     <light name='sun' type='directional'>
       <pose>0 0 10 0 0 0</pose>
       <cast_shadows>true</cast_shadows>

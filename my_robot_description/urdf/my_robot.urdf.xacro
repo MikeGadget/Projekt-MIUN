@@ -3,8 +3,7 @@
 
   <xacro:include filename="general_properties.urdf.xacro" />
   <xacro:include filename="mobile_base.urdf.xacro" />
+   <xacro:include filename="lidar.urdf.xacro" />
   <xacro:include filename="mobile_base_gazebo.urdf.xacro" />
-  <xacro:include filename="lidar.urdf.xacro" />
-
-
+ 
 </robot>

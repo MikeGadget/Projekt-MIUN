@@ -27,7 +27,7 @@
 
 
   <!-- Himmel ljus för att fylla upp golvet-->
-  <light type="point" name="sky_fill_center"> <!--chatgpt-->
+  <light type="point" name="sky_fill_center"> <!-- Skrivet med hjälp av chatgpt-->
     <pose>0 0 12 0 0 0</pose>
     <diffuse>0.75 0.80 0.95 1</diffuse>   
     <specular>0.05 0.05 0.05 1</specular>
@@ -114,19 +114,7 @@
       </link>
     </model>
 
-    <!-- GULA FYRKANTER -->
-    <!-- A) Hörnruta: 2x2 m. Gör den 2.1 m och skjut 5 cm in så den ser helt flush ut. -->
-    <!-- Innerhörn (x=+19.9, y=-14.9) -> center (19.9-1.05, -14.9+1.05) = (18.85, -13.85) -->
-    <model name="mark_corner_SE_2m">
-      <static>true</static>
-      <pose>18.85 -13.85 0.002 0 0 0</pose>
-      <link name="link">
-        <visual name="square_fill">
-          <geometry><box><size>3.0 3.0 0.0001</size></box></geometry>
-          <material><ambient>1.0 0.9 0.0 1</ambient><diffuse>0.1 0.1 1.0 1</diffuse></material>
-        </visual>
-      </link>
-    </model>
+    
 
     <!-- B) Mitt på golvet (exempel): 3x3 m -->
     <model name="coil_collection">
